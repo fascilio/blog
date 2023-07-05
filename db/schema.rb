@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_05_152131) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_05_160630) do
   create_table "articles", force: :cascade do |t|
     t.string "title"
     t.text "content"
@@ -18,6 +18,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_05_152131) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_articles_on_user_id"
+  end
+
+  create_table "authors", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "comments", force: :cascade do |t|
