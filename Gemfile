@@ -71,5 +71,4 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
-
-gem "active_model_serializers", "~> 0.10.12"
+gem 'active_model_serializers'
