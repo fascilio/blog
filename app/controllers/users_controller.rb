@@ -62,7 +62,7 @@ rescue_from ActiveRecord::RecordInvalid, with: :invalid_response
     private
   
     def user_params
-      params.require(:user).permit(:firstname, :secondname, :username, :email, :password, :password_confirmation)
+      params.permit(:firstname, :secondname, :username, :email, :password, :password_confirmation)
     end
 
     def require_login
