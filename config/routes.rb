@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   patch '/profiles/:id', to: 'profiles#update'
   delete '/profiles/:id', to: 'profiles#destroy'
   resources :articles, only: [:index, :create, :update, :destroy]
-  post '/articles', to 'articles#create'
+  post '/articles', to: 'articles#create'
   get '/articles', to: 'articles#index'
   get '/articles/:id', to: 'articles#show'
   put '/articles/:id', to: 'articles#update'
