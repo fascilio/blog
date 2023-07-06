@@ -1,17 +1,5 @@
 class SessionsController < ApplicationController
-  # skip_before_action :verify_authenticity_token, only: [:create, :authenticate]
-    # before_action :require_login, except: [:login, :authenticate]
-    # protect_from_forgery with: :exception, except: [:authenticate]
-
     def create
-      # user = User.new(username: params[:username], password: params[:password])
-  
-      # if user.save
-      #   session[:user_id] = user.id
-      #   render json: user
-      # else
-      #   render json: { error: 'Invalid username' }, status: 401
-      # end
     user = User.find_by!(email: params[:email])
   
       if user && user.authenticate(params[:password])
