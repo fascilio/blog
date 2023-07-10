@@ -29,6 +29,20 @@ class ArticlesController < ApplicationController
       article.destroy
       head :no_content
     end
+
+    def interaction
+      article_id = params[:article_id]
+      user_id = params[:user_id]
+      interaction_type = params[:interaction_type] # Should be either 'like' or 'dislike'
+  
+      like = Like.new(article_id: article_id, user_id: user_id, interaction_type: interaction_type)
+  
+      if like.save
+        render json: like
+      else
+        render json: { error: "Error saving like" }, status: :internal_server_error
+      end
+    end
   
     private
 
@@ -49,5 +63,5 @@ class ArticlesController < ApplicationController
         render json: { error: 'You must be logged in to create an article.' }, status: :unauthorized
       end
     end
-  end
+end
   
