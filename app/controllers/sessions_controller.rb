@@ -4,14 +4,6 @@ class SessionsController < ApplicationController
     # protect_from_forgery with: :exception, except: [:authenticate]
 
     def create
-      # user = User.new(username: params[:username], password: params[:password])
-  
-      # if user.save
-      #   session[:user_id] = user.id
-      #   render json: user
-      # else
-      #   render json: { error: 'Invalid username' }, status: 401
-      # end
     user = User.find_by!(email: params[:email])
   
       if user && user.authenticate(params[:password])
